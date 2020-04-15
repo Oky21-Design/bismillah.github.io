@@ -1,0 +1,8 @@
+Firstly, the AIR Project was the idea of us two ATR Aircraft
+Engineers, Yordi and Dimas. We both saw that there was
+ineffectivity and inefficiency on current Aircraft Readiness
+Report. We want to make a reliable, faster and better
+reporting system. But we are not capable enough to make a
+website with data driven-dashboard. Then we got help
+from our data science enthusiast Rofiq, and two bright
+Binus University IT undergraduate students, Oky and Andy.

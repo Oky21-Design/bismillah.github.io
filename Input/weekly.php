@@ -1,0 +1,313 @@
+<?php 
+	session_start();
+	if($_SESSION['status']!="login"){
+		header("location: ../home/login.php?pesan=not_logged_in");
+	}
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <link rel="icon" href="../assets/Team/AIR Logo.png">
+  <title>Aircraft Integrated Report </title>
+  <meta name="description">
+  <meta name="keywords">
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="../CSS/aquamarine.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <!-- Script: Make my navbar transparent when the document is scrolled to top -->
+  <script src="js/navbar-ontop.js"></script>
+  <!-- Script: Animated entrance -->
+  <script src="js/animate-in.js"></script>
+</head>
+
+<body class="text-center">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-secondary" style="">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12"><img class="img-fluid d-block" src="../assets/Team/AIR Logo.png" width="75"></div>
+      </div> <button class="navbar-toggler navbar-toggler-right border-0 collapsed" type="button" data-toggle="collapse" data-target="#navbar4" aria-expanded="false" style="">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse justify-content-start collapse" id="navbar4" style="">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-2 text-left pt-1"> <a class="nav-link text-dark " href="../home/Homes_AfterLogin.php"><b class="text-light">HOME</b></a> </li>
+          <li class="nav-item mx-2 text-left pt-1 text-light"> <a class="nav-link  text-dark " href="../home/dashboard.php"><b class="text-light">DASHBOARD</b></a> </li>
+          <div class="btn-group">
+            <button class="nav-item btn dropdown-toggle btn-link text-light" data-toggle="dropdown" aria-expanded="false"><b class="text-light">CREATE ARR</b>
+            </button>
+            <div class="dropdown-menu" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);" x-placement="bottom-start"> <a class="dropdown-item" href="profiles.php">Create Data Report</a><a class="dropdown-item" href="labreport.php">Create Lab Data</a>
+            </div>
+          </div>
+          <div class="btn-group">
+          <button class="nav-item btn dropdown-toggle btn-link text-light" data-toggle="dropdown" aria-expanded="false"><b class="text-light">Hello, &nbsp; <?php echo $_SESSION['nama']; ?></b></button>
+            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);"><a class="dropdown-item" href="../Home/logout.php">Logout</a>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5" style="background-image: url(&quot;../assets/Team/fix.png&quot;);	background-position: top left;	background-size: 100%;	background-repeat: no-repeat;">
+    <div class="container">
+      <div class="row py-3">
+      </div>
+      <div class="row">
+        <div class="p-5 bg-white col-md-12 border input-group mt-3" style="">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h3 class="mt-3 text-center text-primary"><b>WEEKLY</b></h3>
+              </div>
+            </div>
+            <form autocomplete="off" class="form-weekly">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h4 class="text-left"><b>Machine</b></h4>
+                    </div>
+                  </div>
+                  <div class="row" style="">
+                    <div class="col-md-6" style=""><b class="">Stargen brush&nbsp;</b>
+                      <div class="row" style="">
+                        <div class="col-md-4  offset-md-1" style="">
+                          <div class="form-group"><label>LH #1</label>
+                            <div class="form-group"><input type="number" id="input1" name="sgb_one" class="form-control form-control-sm border" required="required" style="" placeholder="mm">
+                              <div class="form-group">
+                                <small class="text-muted form-text">Last Inspection</small><input type="date" id="input2" name="last_inspect_one" class="form-control form-control-sm border mt-1 datepicker" required="required" placeholder="Last Inpection" style="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-3" style=""><img class="img-fluid d-block mx-auto mt-3 mb-3" src="../icon/stargen.png" style="left;"></div>
+                        <div class="col-md-4" style="">
+                          <div class="form-group"><label>RH #2</label>
+                            <div class="form-group"><input type="number" id="input3" name="sgb_two" class="form-control form-control-sm border" required="required" style="" placeholder="mm">
+                              <div class="form-group"><small class="text-muted form-text">Last Inspection</small><input type="date" id="input4" name="last_inspect_two" class="form-control form-control-sm border mt-1 datepicker" required="required" placeholder="Last Inspection" style=""></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-5   offset-md-1" style="">
+                      <div class="col-md-12 my-2 " style="">
+                        <div class="row">
+                          <div class="col-md-8 text-left" style=""><b>Fuel Draining</b></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4" style=""><img class="img-fluid d-block mt-1 mx-auto" src="../icon/FuelDraining.png" style="float:left" width="95"></div>
+                          <div class="col-md-8" style="">
+                            <p class="mt-3 text-no wrap text-nowrap"><b><input type="radio" name="fueldraining" value="Good">&nbsp; </b><span style="font-weight: normal;"><i>Water Contamination&nbsp; &nbsp; &nbsp;</i><br><input type="radio" name="fueldraining" value="Nill">&nbsp; <i>No Water Contamination</i></span></p>
+                          </div>
+                        </div> <b style=""></b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 mt-4">
+                      <div class="col-md-12 text-left">
+                        <h4><b>Ac Temperature</b></h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-9 offset-md-3">
+                      <div class="row">
+                      </div>
+                      <div class="row text-left">
+                        <div class="col-md-2" style=""><img class="img-fluid d-block mx-auto my-5" src="../icon/temp.png" width="78"></div>
+                        <div class="col-md-5 offset-md-1" style="">
+                          <div class="row">
+                            <div class="col-md-11" style="transition: all 0.25s;"><b>FLT COMP TEMP</b>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group"><input id="input5" type="number" name="fct_afh" class="form-control form-control-sm border" required="required" placeholder="High Air Flow" style=""></div>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                  <div class="form-group"><input id="input6" type="number" name="fct_normal" class="form-control form-control-sm border" required="required" placeholder="Normal" style=""></div>
+                                </div>
+                              </div><b>FLT DUCT TEMP</b>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group"><input id="input7" type="number" name="fdt_afh" class="form-control form-control-sm border" required="required" placeholder="High Air Flow" style=""></div>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                  <div class="form-group"><input id="input8" type="number" name="fdt_normal" class="form-control form-control-sm border" required="required" placeholder="Normal" style=""></div>
+                                </div>
+                              </div><b>CAB COMP TEMP</b>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group"><input id="input9" type="number" name="cct_afh" class="form-control form-control-sm border" required="required" placeholder="High Air Flow" style=""></div>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                  <div class="form-group"><input id="input10" type="number" name="cct_normal" class="form-control form-control-sm border" required="required" placeholder="Normal" style=""></div>
+                                </div>
+                              </div><b>CAB MFD TEMP</b>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group"><input id="input11" type="number" name="cmt_afh" class="form-control form-control-sm border" required="required" placeholder="High Air Flow" style=""></div>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                  <div class="form-group"><input id="input12" type="number" name="cmt_normal" class="form-control form-control-sm border" required="required" placeholder="Normal" style=""></div>
+                                </div>
+                              </div><b>CAB DUCT TEMP</b>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group"><input id="input13" type="number" name="cdt_afh" class="form-control form-control-sm border" required="required" placeholder="High Air Flow" style=""></div>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                  <div class="form-group"><input id="input14" type="number" name="cdt_normal" class="form-control form-control-sm border" required="required" placeholder="Normal" style=""></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+              </div>
+              <div class="row">
+                <div class="col-md-12 my-3">
+                  <div class="row" style="">
+                    <div class="col-md-2" style=""><button type="submit" id="weeks" class="btn btn-primary btn-block bg-aquamarine btn-sm mt-1 mb-3">Submit</button></div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <p class="mt-3 text-danger"><i>Input Weekly report if&nbsp; after 7 days.</i></p>
+          </div>
+        </div>
+        <div class="" style="">
+          <div class="container">
+            <div class="row">
+            </div>
+            <div class="row">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="py-3 bg-primary" style="	background-image: linear-gradient(to right, #61A528, #006197);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6"><img class="img-fluid d-block mx-auto" src="../assets/Team/footer.png" width="75"></div>
+        <div class="col-md-6 text-center d-md-flex align-items-center">
+          <p class="mt-2 mb-0 mx-auto">© December 2019 GMF Aeroasia Hangar-3. All rights reserved</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- JavaScript dependencies -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" style=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.5.3/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous" style=""></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" style=""></script>
+  <script>
+    $(document).ready(function() {
+      $("#weeks").click(function() {
+        var input1 = $("#input1").val();
+        var input2 = $("#input2").val();
+        var input3 = $("#input3").val();
+        var input4 = $("#input4").val();
+        var input5 = $("#input5").val();
+        var input6 = $("#input6").val();
+        var input7 = $("#input7").val();
+        var input8 = $("#input8").val();
+        var input9 = $("#input9").val();
+        var input10 = $("#input10").val();
+        var input11 = $("#input11").val();
+        var input12 = $("#input12").val();
+        var input13 = $("#input13").val();
+        var input14 = $("#input14").val();
+        var fueldraining = document.getElementsByName('fueldraining');
+        var fValue = false;
+        for (var i = 0; i < fueldraining.length; i++) {
+          if (fueldraining[i].checked == true) {
+            fValue = true;
+          }
+        }
+        if (!fValue) {
+          Swal.fire('CHECK AGAIN', 'Please Choose Fuel Draining!', 'error')
+          return false;
+        }
+        if (input1 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'Stargen Brush #1 Is Empty!', 'error')
+        } else if (input2 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'Date Last Inspection #1 Is Empty!', 'error')
+        } else if (input3 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'Stargen Brush #2 Is Empty!', 'error')
+        } else if (input4 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'Date Last Inspection #2 Is Empty!', 'error')
+        } else if (input5 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'FLT COMP TEMP Air Flow High Is Empty!', 'error')
+        } else if (input6 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'FLT COMP TEMP Normal Is Empty!', 'error')
+        } else if (input7 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'FLT DUCT TEMP Air Flow High Is Empty!', 'error')
+        } else if (input8 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'FLT DUCT TEMP Normal Is Empty!', 'error')
+        } else if (input9 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'CAB COMP TEMP Air Flow High Is Empty!', 'error')
+        } else if (input10 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'CAB COMP TEMP Normal Is Empty!', 'error')
+        } else if (input11 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'CAB MFD TEMP Air Flow High Is Empty!', 'error')
+        } else if (input12 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'CAB MFD TEMP Normal Is Empty!', 'error')
+        } else if (input13 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'CAB DUCT TEMP Air Flow High Is Empty!', 'error')
+        } else if (input14 == '') {
+          event.preventDefault();
+          Swal.fire('CHECK AGAIN', 'CAB DUCT TEMP Normal Is Empty!', 'error')
+        } else {
+          $.ajax({
+            type: 'POST',
+            url: "weekly_input.php",
+            data: $(".form-weekly").serialize(),
+            success: function(data) {
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Save Successfully!',
+                  showConfirmButton: false,
+                  timer: 2000
+                }),
+                setTimeout(function(data) {
+                  window.location.href = "../home/dashboard.php";
+                }, 2500);
+            }
+          });
+          return false;
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

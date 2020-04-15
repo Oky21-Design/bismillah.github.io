@@ -1,0 +1,585 @@
+/*!
+* Aquamarine Pingendo template (https://templates.pingendo.com)
+* Based on: Bootstrap v4.1.3 (https://getbootstrap.com)
+* Copyright 2014-2018 Pingendo (https://pingendo.com)
+*/
+ 
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400');
+
+  
+// Options
+// 
+// Quickly modify global styling by enabling or disabling optional features.
+  
+$enable-rounded:            true !default;
+$enable-shadows:            true;
+$enable-transitions:        true;
+$enable-hover-media-query:  false;
+$enable-grid-classes:       true;
+$enable-print-styles:       true;
+
+// Variables
+//
+// Colors
+
+$theme-colors: (
+  primary: #006197,
+  secondary: #61A528,
+  light: #f3f3f3,
+  dark: #151515,
+  info: #ccc,
+  success: #28a745,
+  warning: #ffc107,
+  danger: #dc3545
+);
+
+$body-bg: white;
+$body-color: #333;
+$body-color-inverse: invert($body-color) !default;
+$link-color: #292b2c;
+
+// Fonts
+$font-family-base: Roboto;
+$display-font-family: Roboto;
+$lead-font-size:   1.30rem;
+$font-size-base:  1rem;
+$font-weight-light: 300;
+$font-weight-normal: 200;
+$font-weight-bold: 700;
+$font-weight-base: $font-weight-normal;
+$line-height-base:  1.5;
+$headings-font-family: Roboto;
+$headings-font-weight: $font-weight-normal;
+$headings-line-height: 1.2;
+
+
+$spacer: 1.5rem;
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 960px);
+
+// Components
+$border-width: 1px !default;
+
+// Buttons
+$input-btn-padding-y-lg:    .55rem;
+$input-btn-padding-x-lg:    1.2rem;
+$input-btn-padding-x:       1rem !default;
+
+//
+// Cards
+$card-border-width:        0px;
+$card-bg:                  map-get($theme-colors, 'light');
+
+// Breadcrumb
+$breadcrumb-bg: transparent !default;
+
+// Carousel
+$carousel-caption-width:            					100% !default;
+$carousel-indicator-height:                   6px !default;
+
+@import 'bootstrap-4.1.3';
+
+html,body {
+   height:100%;
+}
+
+body > * {
+  background-position: center;
+  background-size: cover;
+}
+
+
+// Color yiq
+@each $name, $value in $theme-colors {
+  .bg-#{$name} {
+    color: color-yiq($value);
+   	input::placeholder {
+      color: transparentize(color-yiq($value), .2);
+    }
+    .input-group-text {
+      color: color-yiq($value);
+    }
+  }
+}
+.cover {
+ min-height: 100%; 
+}
+
+.inset-shadowed {
+  box-shadow: inset 0px 0px 45px #555;
+}
+
+.shadowed {
+  box-shadow: 0px 0px 5px #555;
+}
+
+.section-aquamarine {
+  position: relative;
+  color:white;
+  background-size:cover;
+  background-position: center;
+	&:before {
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height: 100%;
+    content: ' ';
+    background: linear-gradient(to bottom right, transparentize(theme-color("primary"), 0.1) 0%, transparentize(theme-color("secondary"), 0.1) 100%);
+  }
+}
+
+.section-dark {
+  position: relative;
+  color:map-get($theme-colors, 'light');
+  background-size:cover;
+  background-position: center;
+	&:before {
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height: 100%;
+    content: ' ';
+    background: rgba(map-get($theme-colors, 'dark'), 0.75);
+  }
+}
+
+.section-light {
+  position: relative;
+  color:map-get($theme-colors, 'dark');
+  background-size:cover;
+  background-position: center;
+	&:before {
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height: 100%;
+    content: ' ';
+    background: rgba(map-get($theme-colors, 'light'), 0.75);
+  }
+}
+
+.section-parallax {
+  background-attachment: fixed;
+  background-size:cover;
+  background-position: center;
+}
+
+.bg-aquamarine {
+	background: linear-gradient(-30deg, transparentize(theme-color("secondary"), 0.1) 0%, transparentize(theme-color("primary"), 0.1) 50%, transparentize(theme-color("primary"), 0.05) 100%);
+  color:white;
+}
+
+.img-thumbnail {
+  border:0px;
+  padding:10px;
+}
+
+.carousel {
+	 .ui-jcoverflip {
+        position: relative;
+      }
+      
+      .ui-jcoverflip--item {
+        position: absolute;
+        display: block;
+      }
+      
+      /* Basic sample CSS */
+      #flip {
+        height: 200px;
+        width: 630px;
+        margin-bottom: 50px;
+      }
+      
+      #flip .ui-jcoverflip--title {
+        position: absolute;
+        bottom: -30px;
+        width: 100%;
+        text-align: center;
+        color: #555;
+      }
+      
+      #flip img {
+        display: block;
+        border: 0;
+        outline: none;
+      }
+      
+      #flip a {
+        outline: none;
+      }
+      
+      
+      #wrapper {
+        height: 3560px;
+        width: 635px;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .ui-jcoverflip--item {
+        cursor: pointer;
+      }
+      
+      
+      
+     
+      #scrollbar {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        
+      }
+}
+ 
+
+
+/* Animate state between .navbar and .navbar-ontop */
+.navbar {
+  transition: background-color .5s ease-out;
+}
+
+.navbar-ontop {
+  background-color: transparent !important;
+}
+
+/* Animate on entrance */
+
+.animate-in-down {
+  transition: all 1.3s ease-out;
+	position:relative;
+  opacity:1;
+  top:0px;
+  &.out-of-viewport {
+    top:40px;
+    opacity:0;
+  }
+}
+
+
+.animate-in-left {
+  transition: all 1.0s ease-out;
+	position:relative;
+  opacity:1;
+	left:0%;
+  &.out-of-viewport {
+    opacity:0;
+      left:-5%;
+  }
+}
+
+
+.animate-in-right {
+  transition: all 1.0s ease-out;
+	position:relative;
+  opacity:1;
+	left:0%;
+  &.out-of-viewport {
+    opacity:0;
+    left:5%;
+  }
+}
+.asd {
+	background: url(../assets/Team/background.png) no-repeat fixed;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-o-background-size: 960px;
+	.parallax {
+		/* The image used */
+  background-image: url("img_parallax.jpg");
+		/* Set a specific height */
+  height: 500px;
+		/* Create the parallax scrolling effect */
+  background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+}
+
+.hovereffect {
+  width: auto;
+  height: auto;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+.hovereffect .overlay {
+  width: auto;
+  height: auto;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+
+.hovereffect:hover img {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /><feGaussianBlur stdDeviation="3" /></filter></svg>#filter');
+  filter: grayscale(1) blur(3px);
+  -webkit-filter: grayscale(1) blur(3px);
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hovereffect a.info {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1px solid #fff;
+  margin: 50px 0 0 0;
+  background-color: transparent;
+}
+
+.hovereffect a.info:hover {
+  box-shadow: 0 0 5px #fff;
+}
+
+.hovereffect a.info, .hovereffect h2 {
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.hovereffect:hover a.info, .hovereffect:hover h2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+table {
+  width:100%;
+  table-layout: fixed;
+
+}
+
+.card {
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+.input-group {
+  background-color: $input-bg;
+  border-radius: $input-border-radius;
+  border: $input-border-width solid $input-border-color;
+	transition: all 0.3s;
+  
+  .input-group-prepend span, .form-control {
+		background: transparent;	
+	} 
+  
+  &.focus {
+   background-color: $input-focus-bg;
+  }
+  
+  * {
+    border:none;
+  }
+  
+  .input-group-append span {
+   padding-left: 0;
+  }
+  
+  .input-group-prepend span {
+   padding-right: 0;
+  }
+}
+
+
+.custom-control {  
+	.custom-control-label {
+    padding-left: 5px;
+    line-height: 26px;
+	}
+  
+  .custom-control-label::before {
+    border: 1px solid #E3E3E3;
+  }
+
+  .custom-control-label::after {
+    transition: opacity .3s;
+    opacity:0;
+    color: $custom-control-indicator-checked-color;
+  }
+  
+ 	.custom-control-input {  
+    &:checked ~ .custom-control-label {
+    	&::after {
+				opacity:1;
+  	  }
+	  }
+    
+	 	&:disabled ~ .custom-control-label::before {  
+			opacity:.4;
+	  }
+    &:disabled ~ .custom-control-label::after {
+			opacity:.4;
+	  }
+  }
+
+  &.custom-select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+  }
+  
+  &.custom-checkbox {  
+    .custom-control-label {
+      padding-left: 40px;
+    }
+    
+    .custom-control-label::before {
+      top: 0;
+      width: 26px;
+      height: 26px;
+      border: 1px solid #E3E3E3; 
+      border-radius: $custom-checkbox-indicator-border-radius;
+    }
+    
+    .custom-control-input {  
+      &:checked ~ .custom-control-label {
+        &::after {
+          border-radius: $custom-checkbox-indicator-border-radius;
+          top: 0;
+          left: 6px;
+          font-family: 'Nucleo Outline';
+          content: "\ea22";   
+        }
+      }
+    } 
+  }
+  
+  &.custom-radio {
+    margin-bottom:1rem;
+  }
+}
+
+
+.dropdown-menu {
+  border:none;
+  box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.2);
+
+  &:before {
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    content: "";
+    top: -5px;
+    left: 10px;
+    right: auto;
+    color: #FFFFFF;
+    border-bottom: .4em solid;
+    border-right: .4em solid transparent;
+    border-left: .4em solid transparent;
+  }
+
+  &:before {
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    content: "";
+    top: -5px;
+    left: auto;
+    right: 10px;
+    color: #FFFFFF;
+    border-bottom: .4em solid;
+    border-right: .4em solid transparent;
+    border-left: .4em solid transparent;
+  }
+  
+  .dropdown-item {
+    font-size: 0.8571em;
+  }
+}
+
+
+.pagination {
+    .page-item {
+     		background-color:transparent !important;
+    }
+  	
+    .page-item .page-link{
+        border: 0;
+        border-radius: 30px ;
+      	color: #2c2c2c;
+        padding: 0px 11px;
+        margin: 0 3px;
+        min-width: 30px;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+  	}
+  	.disabled > a {
+         color:theme-color("secondary") !important;
+  	}
+  
+ 		@each $name, $value in $theme-colors {
+       .page-item.bg-#{$name} > a {
+         background-color: $value;
+          border-radius: 30px !important;
+       }
+    }  
+  	.active > a {
+      color:white !important;
+      box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+.badge {
+  @each $name, $value in $theme-colors {
+    &.badge.badge-#{$name} {
+      background-color: white;
+      color: $value;
+      border : 1px solid $value;
+      line-height: 12px;
+      margin-bottom:5px;
+      border-radius: 0.875rem;
+      padding-bottom: .25rem;
+      padding-top: .25rem;
+    }
+  }
+}
+
+
+.alert {
+  @each $name, $value in $theme-colors {
+    &.alert-#{$name} {
+      background-color: $value;
+      opacity: 0.8;
+    }
+  }
+}
+
