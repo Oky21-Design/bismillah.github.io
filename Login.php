@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="../assets/Team/AIR Logo.png">
+  <link rel="icon" href="assets/Team/AIR Logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="../CSS/aquamarine.css">
+  <link rel="stylesheet" href="CSS/aquamarine.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                 <div class="col-md-11 card input-group bg-white offset-md-1" style="	height: 400px;">
                   <div class="row form-group">
                     <div class="col-md-12 input-group-prepe">
-                      <img class="img-fluid d-block m-3" src="../assets/Team/AIR Logo.png" width="100"></div>
+                      <img class="img-fluid d-block m-3" src="assets/Team/AIR Logo.png" width="100"></div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
@@ -113,7 +113,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-7" style=""><img class="p-0 col-md-12 d-none d-md-block" src="../assets/Background/tes.png" style="" width="800"></div>
+        <div class="col-md-7" style=""><img class="p-0 col-md-12 d-none d-md-block" src="assets/Background/tes.png" style="" width="800"></div>
       </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

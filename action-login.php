@@ -16,7 +16,7 @@
         $_SESSION['username'] = $username;
         $_SESSION['nama'] = $row['_nama'];
         $_SESSION['status'] = "login";
-        header("Location: ../Data_Aircraft/AllAircraft/AllAircraft.php");
+        header("Location: Data_Aircraft/AllAircraft/AllAircraft.php");
     } 
     else {
         header("location:login.php?pesan=failed");
